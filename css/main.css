@@ -1,0 +1,74 @@
+
+/* IMPORT */
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400';
+@import 'https://fonts.googleapis.com/css?family=Merriweather:300italic';
+
+
+/* COMMON */
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: Merriweather, sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 2em;
+	letter-spacing: 0.01em;
+	color: white;
+	background: #222;
+	text-rendering: optimizeLegibility;
+	-webkit-text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+@media screen and (max-width: 767px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* HOMEPAGE */
+
+#homepage {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+#homepage header {
+	position: relative;
+	text-align: center;
+}
+#homepage header::before,
+#homepage header::after {
+	content: ' ';
+	position: absolute;
+	width: 50px;
+	height: 2px;
+	left: 50%;
+	margin-left: -25px;
+	background: white;
+}
+#homepage header::before {
+	top: -20px;
+}
+#homepage header::after {
+	bottom: -15px;
+}
+
+#homepage header h1 {
+	font-family: Montserrat, sans-serif;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	margin: 0;
+}
