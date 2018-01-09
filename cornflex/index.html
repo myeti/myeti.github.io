@@ -1,0 +1,330 @@
+<html>
+	<head>
+		<title>Cornflex - Lightweight CSS flexbox grid framework</title>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Aymeric Assier" />
+    <meta name="description" content="Cornflex - Lightweight CSS flexbox grid framework" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="cornflex.min.css" rel="stylesheet" />	
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Inconsolata, monospace;
+      }
+      html, body {
+        margin: 0; padding: 0;
+        font-size: 18px;
+        color: #666;
+      }
+      header { padding: 100px 0 }
+      header, footer { text-align: center }
+      h1 { font-size: 48px }
+      h1, h2 {
+        margin: 0;
+        color: #0c91a4;
+      }
+      h2 + p {
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      .small { font-size: 14px }
+      a {
+        color: #0c91a4;
+        text-decoration: none;
+        border-bottom: 1px solid;
+      }
+      button {
+        border: none;
+        color: white;
+        background: #31939e;
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 30px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        outline: none;
+      }
+      button.active, button:hover { background: #3eb8c5 }
+      section, footer { padding: 60px 0 40px 0 }
+      section:nth-of-type(odd) { background: #fafafa }
+      .row[data-code] {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px dashed #ddd;
+        counter-reset: section; 
+      }
+      .row[data-code] [class*="col"] {
+        position: relative;
+        height: 50px;
+        color: white;
+        text-align: center;
+        counter-increment: section;
+      }
+      .row[data-code] [class*="col"]::before {
+        content: counter(section);
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background: #3eb8c5;
+        line-height: 50px;
+      }
+      .row.row-gutter[data-code] [class*="col"]::before {
+        left: 10px; right: 10px;
+      }
+      .row[data-code] [class*="col"]:nth-child(even)::before {
+        background: #31939e;
+      }
+      pre {
+        padding-top: 20px;
+        overflow: auto;
+        }
+      .hidden { display: none }
+    </style>
+	</head>
+	<body>
+
+    <header>
+      <div class="container-md" data-container>
+
+        <h1>Cornflex</h1>
+        <p>Lightweight CSS flexbox grid framework</p>
+        <p class="small">
+          Download <a href="cornflex.css" target="_blank">cornflex.css</a> development version
+          or <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> production version (8ko)
+        </p>
+
+      </div>
+    </header>
+
+
+    <!-- container -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Container</h2>
+        <p>.container(-sm|-md|-lg)</p>
+
+        <div class="row row-gutter">
+          <div class="col-6 col-3-md">
+            <button data-container-switch>.container</button>
+          </div>
+          <div class="col-6 col-3-md">
+            <button data-container-switch>.container-sm</button>
+          </div>
+          <div class="col-6 col-3-md">
+            <button class="active" data-container-switch>.container-md</button>
+          </div>
+          <div class="col-6 col-3-md">
+            <button data-container-switch>.container-lg</button>
+          </div>
+        </div>
+
+        <div class="container-md hidden" data-code>
+          ...
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- grid -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Row and columns</h2>
+        <p>.row .col-[1..12](-sm|-md|-lg)</p>
+
+        <div class="row" data-code>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- grid gutter -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Gutter</h2>
+        <p>.row.row-gutter</p>
+
+        <div class="row row-gutter" data-code>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- grid rtl -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Right to Left</h2>
+        <p>.row.row-rtl</p>
+
+        <div class="row row-gutter row-rtl" data-code>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- justify -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Justify content</h2>
+        <p>.row-[left|center|right|between|around](-sm|-md|-lg)</p>
+
+        <div class="row row-gutter row-right row-center-md" data-code>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- align -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Align items</h2>
+        <p>.row-[top|middle|bottom](-sm|-md|-lg)</p>
+
+        <div class="row row-gutter row-bottom row-middle-md" style="height: 200px" data-code>
+          <div class="col-4"></div>
+          <div class="col-4"></div>
+          <div class="col-4"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- self align -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Self-align item</h2>
+        <p>.col-[top|middle|bottom](-sm|-md|-lg)</p>
+
+        <div class="row row-gutter" style="height: 200px" data-code>
+          <div class="col-4 col-bottom col-top-md"></div>
+          <div class="col-4 col-middle"></div>
+          <div class="col-4 col-top col-bottom-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- order -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Order</h2>
+        <p>.col-nth-[1..12](-sm|-md|-lg)</p>
+
+        <div class="row row-gutter" data-code>
+          <div class="col-3 col-nth-4 col-nth-2-md"></div>
+          <div class="col-3 col-nth-3 col-nth-4-md"></div>
+          <div class="col-3 col-nth-2 col-nth-1-md"></div>
+          <div class="col-3 col-nth-1 col-nth-3-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- shift -->
+
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Shift</h2>
+        <p>.col-shift-[0..12](-sm|-md|-lg)</p>
+
+        <div class="row row-gutter" data-code>
+          <div class="col-2 col-shift-2 col-shift-4-md"></div>
+          <div class="col-2 col-shift-2 col-shift-4-md"></div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <footer>
+      <div class="container-md" data-container>
+
+        <p>Made with &#x2764; by <a href="https://github.com/myeti/flexgrid">@myeti</a></p>
+      
+      </div>
+    </footer>
+
+
+    <script>
+    document.querySelectorAll('[data-code]').forEach(el => {
+      var node = el.cloneNode(true)
+      node.removeAttribute('style')
+      node.removeAttribute('data-code')
+      node.classList.remove('hidden')
+      var html = node.outerHTML.replace(/ {8}/g, '')
+      el.parentElement.querySelector('pre code').innerText = html.trim()
+    })
+    var switches = document.querySelectorAll('[data-container-switch]')
+    var containers = document.querySelectorAll('[data-container]')
+    switches.forEach(btn => {
+      btn.addEventListener('click', e => {
+        switches.forEach(s => s.classList.remove('active'))
+        containers.forEach(c => {
+          c.removeAttribute('class')
+          c.classList.add(btn.innerText.replace('.', ''))
+        })
+        btn.classList.add('active')
+      })
+    })
+    </script>
+
+	</body>
+</html>
