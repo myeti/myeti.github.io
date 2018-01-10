@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title>Cornflex - Lightweight CSS flexbox grid framework</title>
+		<title>Cornflex - Modern css flexbox grid framework</title>
     <meta charset="UTF-8" />
     <meta name="author" content="Aymeric Assier" />
-    <meta name="description" content="Cornflex - Lightweight CSS flexbox grid framework" />
+    <meta name="description" content="Build complex layout with minimal code and pain, lightweight - no useless props - only 8ko, use the `flexbox` feature only" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link href="cornflex.min.css" rel="stylesheet" />	
@@ -23,10 +23,6 @@
       h1, h2 {
         margin: 0;
         color: #0c91a4;
-      }
-      h2 + p {
-        margin-top: 10px;
-        margin-bottom: 50px;
       }
       .small { font-size: 14px }
       a {
@@ -50,9 +46,8 @@
       section, footer { padding: 60px 0 40px 0 }
       section:nth-of-type(odd) { background: #fafafa }
       .row[data-code] {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border: 2px dashed #ddd;
+        padding-top: 20px;
+        padding-bottom: 20px;
         counter-reset: section; 
       }
       .row[data-code] [class*="col"] {
@@ -76,10 +71,18 @@
       .row[data-code] [class*="col"]:nth-child(even)::before {
         background: #31939e;
       }
-      pre {
-        padding-top: 20px;
+      pre { margin-top: 20px }
+      p + code, pre {
+        padding: 20px;
         overflow: auto;
-        }
+        background: rgba(0, 0, 0, .05);
+        border-left: 5px solid rgba(0, 0, 0, .05);
+        border-radius: 2px;
+      }
+      p + code {
+        display: inline-block;
+        margin-bottom: 30px;
+      }
       .hidden { display: none }
     </style>
 	</head>
@@ -89,10 +92,11 @@
       <div class="container-md" data-container>
 
         <h1>Cornflex</h1>
-        <p>Lightweight CSS flexbox grid framework</p>
+        <p>Modern css flexbox grid framework</p>
         <p class="small">
-          Download <a href="cornflex.css" target="_blank">cornflex.css</a> development version
-          or <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> production version (8ko)
+          v1.1 |
+          <a href="cornflex.css" target="_blank">cornflex.css</a> 11ko |
+          <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> 8ko
         </p>
 
       </div>
@@ -105,7 +109,13 @@
       <div class="container-md" data-container>
 
         <h2>Container</h2>
-        <p>.container(-sm|-md|-lg)</p>
+        
+        <p>
+          Wrap your content based on the breakpoint, become fluid when smaller to the breakpoint value.
+        </p>
+        <code>.container(-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter">
           <div class="col-6 col-3-md">
@@ -137,8 +147,12 @@
     <section>
       <div class="container-md" data-container>
 
-        <h2>Row and columns</h2>
-        <p>.row .col-[1..12](-sm|-md|-lg)</p>
+        <h2>Grid</h2>
+
+        <p>Let you define a grid of row containing columns with a specific size.</p>
+        <code>.row .col-[1..12](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row" data-code>
           <div class="col-12 col-6-sm col-3-md"></div>
@@ -159,7 +173,11 @@
       <div class="container-md" data-container>
 
         <h2>Gutter</h2>
-        <p>.row-gutter</p>
+
+        <p>Add space based on the gutter value between columns.</p>
+        <code>.row-gutter</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
           <div class="col-12 col-6-sm col-3-md"></div>
@@ -179,8 +197,12 @@
     <section>
       <div class="container-md" data-container>
 
-        <h2>Right to Left</h2>
-        <p>.row-rtl</p>
+        <h2>Reverse</h2>
+
+        <p>Reverse order for `rtl` languages.</p>
+        <code>.row-rtl</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter row-rtl" data-code>
           <div class="col-12 col-6-sm col-3-md"></div>
@@ -200,8 +222,12 @@
     <section>
       <div class="container-md" data-container>
 
-        <h2>Justify content</h2>
-        <p>.row-[left|center|right|between|around](-sm|-md|-lg)</p>
+        <h2>Justify</h2>
+        
+        <p>Specify how to horizontally align cols in row.</p>
+        <code>.row-[left|center|right|between|around](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter row-right row-center-md" data-code>
           <div class="col-3"></div>
@@ -219,8 +245,12 @@
     <section>
       <div class="container-md" data-container>
 
-        <h2>Align items</h2>
-        <p>.row-[top|middle|bottom](-sm|-md|-lg)</p>
+        <h2>Align</h2>
+        
+        <p>Specify how to vertically align cols in row.</p>
+        <code>.row-[top|middle|bottom](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter row-bottom row-middle-md" style="height: 200px" data-code>
           <div class="col-4"></div>
@@ -239,8 +269,12 @@
     <section>
       <div class="container-md" data-container>
 
-        <h2>Self-align item</h2>
-        <p>.col-[top|middle|bottom](-sm|-md|-lg)</p>
+        <h2>Self-align</h2>
+
+        <p>Individually specify how to vertically align cols in row.</p>
+        <code>.col-[top|middle|bottom](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter" style="height: 200px" data-code>
           <div class="col-4 col-bottom col-top-md"></div>
@@ -260,7 +294,11 @@
       <div class="container-md" data-container>
 
         <h2>Order</h2>
-        <p>.col-nth-[1..12](-sm|-md|-lg)</p>
+
+        <p>Re-order cols in row (dot not change the `dom`)</p>
+        <code>.col-nth-[1..12](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
           <div class="col-3 col-nth-4 col-nth-2-md"></div>
@@ -281,7 +319,11 @@
       <div class="container-md" data-container>
 
         <h2>Shift</h2>
-        <p>.col-shift-[0..12](-sm|-md|-lg)</p>
+
+        <p>Shift cols to specific position based on col's size.</p>
+        <code>.col-shift-[0..12](-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
           <div class="col-2 col-shift-2 col-shift-4-md"></div>

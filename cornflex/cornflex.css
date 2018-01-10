@@ -1,7 +1,7 @@
 /*!
- * Cornflex v1.0.0
+ * Cornflex v1.1
  * Copyright 2018 Aymeric Assier <aymeric.assier@gmail.com>
- * Licensed under MIT (https://github.com/myeti/cornflex/blob/master/licence)
+ * Licensed under MIT (https://github.com/myeti/cornflex/blob/master/LICENCE)
  */
 .container, [class*="container-"],
 .row, .col, [class*="col-"] {
@@ -14,8 +14,15 @@
 .row {
   display: flex;
   flex-wrap: wrap; }
+  .row-gutter {
+    margin: 0 -10px; }
+    .row-gutter .col, .row-gutter [class*="col-"] {
+      padding: 0 10px; }
   .row-rtl {
     flex-direction: row-reverse; }
+
+.col, [class*="col-"] {
+  flex-grow: 1; }
 
 .row-left {
   justify-content: flex-start; }
@@ -33,13 +40,8 @@
   align-items: center; }
 .row-bottom {
   align-items: flex-end; }
-.row-gutter {
-  margin: 0 -10px; }
-  .row-gutter .col, .row-gutter [class*="col-"] {
-    padding: 0 10px; }
 
 .col {
-  flex-grow: 1;
   max-width: 100%; }
 .col-1 {
   flex-basis: 8.3333333%;
@@ -154,13 +156,8 @@
     align-items: center; }
   .row-bottom-sm {
     align-items: flex-end; }
-  .row-gutter-sm {
-    margin: 0 -10px; }
-    .row-gutter-sm .col, .row-gutter-sm [class*="col-"] {
-      padding: 0 10px; }
 
   .col-sm {
-    flex-grow: 1;
     max-width: 100%; }
   .col-1-sm {
     flex-basis: 8.3333333%;
@@ -274,13 +271,8 @@
     align-items: center; }
   .row-bottom-md {
     align-items: flex-end; }
-  .row-gutter-md {
-    margin: 0 -10px; }
-    .row-gutter-md .col, .row-gutter-md [class*="col-"] {
-      padding: 0 10px; }
 
   .col-md {
-    flex-grow: 1;
     max-width: 100%; }
   .col-1-md {
     flex-basis: 8.3333333%;
@@ -394,13 +386,8 @@
     align-items: center; }
   .row-bottom-lg {
     align-items: flex-end; }
-  .row-gutter-lg {
-    margin: 0 -10px; }
-    .row-gutter-lg .col, .row-gutter-lg [class*="col-"] {
-      padding: 0 10px; }
 
   .col-lg {
-    flex-grow: 1;
     max-width: 100%; }
   .col-1-lg {
     flex-basis: 8.3333333%;
