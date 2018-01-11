@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Cornflex - Modern css flexbox grid framework</title>
+		<title>Cornflex - Modern CSS flexbox grid framework</title>
     <meta charset="UTF-8" />
     <meta name="author" content="Aymeric Assier" />
     <meta name="description" content="Build complex layout with minimal code and pain, lightweight - no useless props - only 8ko, use the `flexbox` feature only" />
@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
     <link href="cornflex.min.css" rel="stylesheet" />	
     <style>
+      /* layout */
       * {
         box-sizing: border-box;
         font-family: Inconsolata, monospace;
@@ -17,8 +18,12 @@
         font-size: 18px;
         color: #666;
       }
+      /* blocks */
       header { padding: 100px 0 }
       header, footer { text-align: center }
+      section, footer { padding: 60px 0 40px 0 }
+      section:nth-of-type(odd), footer { background: #f8f8f8 }
+      /* elements */
       h1 { font-size: 48px }
       h1, h2 {
         margin: 0;
@@ -43,34 +48,6 @@
         outline: none;
       }
       button.active, button:hover { background: #3eb8c5 }
-      section, footer { padding: 60px 0 40px 0 }
-      section:nth-of-type(odd) { background: #fafafa }
-      .row[data-code] {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        counter-reset: section; 
-      }
-      .row[data-code] [class*="col"] {
-        position: relative;
-        height: 50px;
-        color: white;
-        text-align: center;
-        counter-increment: section;
-      }
-      .row[data-code] [class*="col"]::before {
-        content: counter(section);
-        position: absolute;
-        top: 0; bottom: 0;
-        left: 0; right: 0;
-        background: #3eb8c5;
-        line-height: 50px;
-      }
-      .row.row-gutter[data-code] [class*="col"]::before {
-        left: 10px; right: 10px;
-      }
-      .row[data-code] [class*="col"]:nth-child(even)::before {
-        background: #31939e;
-      }
       pre { margin-top: 20px }
       p + code, pre {
         padding: 20px;
@@ -84,6 +61,30 @@
         margin-bottom: 30px;
       }
       .hidden { display: none }
+      /* highlight cornflex */
+      .row[data-code] {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        counter-reset: section; 
+      }
+      .row[data-code] [class*="col"] {
+        position: relative;
+        z-index: 5;
+        height: 50px;
+        color: white;
+        justify-content: center;
+        line-height: 50px;
+      }
+      .row[data-code] [class*="col"]::before {
+        content: ' ';
+        z-index: -1;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background: #3eb8c5;
+      }
+      .row.row-gutter[data-code] [class*="col"]::before { left: 10px; right: 10px }
+      .row[data-code] [class*="col"]:nth-child(even)::before { background: #31939e }
     </style>
 	</head>
 	<body>
@@ -92,11 +93,12 @@
       <div class="container-md" data-container>
 
         <h1>Cornflex</h1>
-        <p>Modern css flexbox grid framework</p>
+        <p>Modern CSS flexbox grid framework</p>
         <p class="small">
-          v1.1.1 |
+          v1.2 |
+          <a href="https://github.com/myeti/cornflex" target="_blank">github</a> |
           <a href="cornflex.css" target="_blank">cornflex.css</a> 11ko |
-          <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> 7ko
+          <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> 8ko
         </p>
 
       </div>
@@ -104,7 +106,6 @@
 
 
     <!-- container -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -143,7 +144,6 @@
 
 
     <!-- grid -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -155,10 +155,10 @@
         <h3>ex:</h3>
 
         <div class="row" data-code>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"> 1 </div>
+          <div class="col-12 col-6-sm col-3-md"> 2 </div>
+          <div class="col-12 col-6-sm col-3-md"> 3 </div>
+          <div class="col-12 col-6-sm col-3-md"> 4 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -167,8 +167,7 @@
     </section>
 
 
-    <!-- grid gutter -->
-
+    <!-- gutter -->
     <section>
       <div class="container-md" data-container>
 
@@ -180,10 +179,10 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"> 1 </div>
+          <div class="col-12 col-6-sm col-3-md"> 2 </div>
+          <div class="col-12 col-6-sm col-3-md"> 3 </div>
+          <div class="col-12 col-6-sm col-3-md"> 4 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -192,8 +191,7 @@
     </section>
 
 
-    <!-- grid rtl -->
-
+    <!-- rtl -->
     <section>
       <div class="container-md" data-container>
 
@@ -205,10 +203,10 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter row-rtl" data-code>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
-          <div class="col-12 col-6-sm col-3-md"></div>
+          <div class="col-12 col-6-sm col-3-md"> 1 </div>
+          <div class="col-12 col-6-sm col-3-md"> 2 </div>
+          <div class="col-12 col-6-sm col-3-md"> 3 </div>
+          <div class="col-12 col-6-sm col-3-md"> 4 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -218,7 +216,6 @@
 
 
     <!-- justify -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -230,8 +227,8 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter row-right row-center-md" data-code>
-          <div class="col-3"></div>
-          <div class="col-3"></div>
+          <div class="col-3"> 1 </div>
+          <div class="col-3"> 2 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -241,7 +238,6 @@
 
 
     <!-- align -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -253,9 +249,9 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter row-bottom row-middle-md" style="height: 200px" data-code>
-          <div class="col-4"></div>
-          <div class="col-4"></div>
-          <div class="col-4"></div>
+          <div class="col-4"> 1 </div>
+          <div class="col-4"> 2 </div>
+          <div class="col-4"> 3 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -265,7 +261,6 @@
 
 
     <!-- self align -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -277,9 +272,9 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter" style="height: 200px" data-code>
-          <div class="col-4 col-bottom col-top-md"></div>
-          <div class="col-4 col-middle"></div>
-          <div class="col-4 col-top col-bottom-md"></div>
+          <div class="col-4 col-bottom col-top-md"> 1 </div>
+          <div class="col-4 col-middle"> 2 </div>
+          <div class="col-4 col-top col-bottom-md"> 3 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -289,7 +284,6 @@
 
 
     <!-- order -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -301,10 +295,10 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
-          <div class="col-3 col-nth-4 col-nth-2-md"></div>
-          <div class="col-3 col-nth-3 col-nth-4-md"></div>
-          <div class="col-3 col-nth-2 col-nth-1-md"></div>
-          <div class="col-3 col-nth-1 col-nth-3-md"></div>
+          <div class="col-3 col-nth-4 col-nth-2-md"> 1 </div>
+          <div class="col-3 col-nth-3 col-nth-4-md"> 2 </div>
+          <div class="col-3 col-nth-2 col-nth-1-md"> 3 </div>
+          <div class="col-3 col-nth-1 col-nth-3-md"> 4 </div>
         </div>
 
         <pre><code></code></pre> 
@@ -314,7 +308,6 @@
 
 
     <!-- shift -->
-
     <section>
       <div class="container-md" data-container>
 
@@ -326,8 +319,31 @@
         <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
-          <div class="col-2 col-shift-2 col-shift-4-md"></div>
-          <div class="col-2 col-shift-2 col-shift-4-md"></div>
+          <div class="col-2 col-shift-2 col-shift-4-md"> 1 </div>
+          <div class="col-2 col-shift-2 col-shift-4-md"> 2 </div>
+        </div>
+
+        <pre><code></code></pre> 
+      
+      </div>
+    </section>
+
+
+    <!-- hide -->
+    <section>
+      <div class="container-md" data-container>
+
+        <h2>Hide</h2>
+
+        <p>Hide cols from specific breakpoint.</p>
+        <code>.col-hide(-sm|-md|-lg)</code>
+
+        <h3>ex:</h3>
+
+        <div class="row row-gutter" data-code>
+          <div class="col-6"> 1 </div>
+          <div class="col-6 col-hide-md"> 2 </div>
+          <div class="col-hide col-6-md"> 3 </div>
         </div>
 
         <pre><code></code></pre> 

@@ -1,5 +1,5 @@
 /*!
- * Cornflex v1.1
+ * Cornflex v1.2
  * Copyright 2018 Aymeric Assier <aymeric.assier@gmail.com>
  * Licensed under MIT (https://github.com/myeti/cornflex/blob/master/LICENCE)
  */
@@ -22,6 +22,7 @@
     flex-direction: row-reverse; }
 
 .col, [class*="col-"] {
+  display: flex;
   flex-grow: 1; }
 
 .row-left {
@@ -131,6 +132,8 @@
   align-self: center; }
 .col-bottom {
   align-self: flex-end; }
+.col-hide {
+  display: none; }
 
 @media (min-width: 768px) {
   .container-sm {
@@ -156,39 +159,51 @@
   .col-sm {
     max-width: 100%; }
   .col-1-sm {
+    display: flex;
     flex-basis: 8.3333333%;
     max-width: 8.3333333%; }
   .col-2-sm {
+    display: flex;
     flex-basis: 16.6666667%;
     max-width: 16.6666667%; }
   .col-3-sm {
+    display: flex;
     flex-basis: 25%;
     max-width: 25%; }
   .col-4-sm {
+    display: flex;
     flex-basis: 33.3333333%;
     max-width: 33.3333333%; }
   .col-5-sm {
+    display: flex;
     flex-basis: 41.6666667%;
     max-width: 41.6666667%; }
   .col-6-sm {
+    display: flex;
     flex-basis: 50%;
     max-width: 50%; }
   .col-7-sm {
+    display: flex;
     flex-basis: 58.3333333%;
     max-width: 58.3333333%; }
   .col-8-sm {
+    display: flex;
     flex-basis: 66.6666667%;
     max-width: 66.6666667%; }
   .col-9-sm {
+    display: flex;
     flex-basis: 75%;
     max-width: 75%; }
   .col-10-sm {
+    display: flex;
     flex-basis: 83.3333333%;
     max-width: 83.3333333%; }
   .col-11-sm {
+    display: flex;
     flex-basis: 91.6666667%;
     max-width: 91.6666667%; }
   .col-12-sm {
+    display: flex;
     flex-basis: 100%;
     max-width: 100%; }
   .col-nth-1-sm {
@@ -244,7 +259,9 @@
   .col-middle-sm {
     align-self: center; }
   .col-bottom-sm {
-    align-self: flex-end; } }
+    align-self: flex-end; }
+  .col-hide-sm {
+    display: none; } }
 @media (min-width: 992px) {
   .container-md {
     max-width: 992px; }
@@ -269,39 +286,51 @@
   .col-md {
     max-width: 100%; }
   .col-1-md {
+    display: flex;
     flex-basis: 8.3333333%;
     max-width: 8.3333333%; }
   .col-2-md {
+    display: flex;
     flex-basis: 16.6666667%;
     max-width: 16.6666667%; }
   .col-3-md {
+    display: flex;
     flex-basis: 25%;
     max-width: 25%; }
   .col-4-md {
+    display: flex;
     flex-basis: 33.3333333%;
     max-width: 33.3333333%; }
   .col-5-md {
+    display: flex;
     flex-basis: 41.6666667%;
     max-width: 41.6666667%; }
   .col-6-md {
+    display: flex;
     flex-basis: 50%;
     max-width: 50%; }
   .col-7-md {
+    display: flex;
     flex-basis: 58.3333333%;
     max-width: 58.3333333%; }
   .col-8-md {
+    display: flex;
     flex-basis: 66.6666667%;
     max-width: 66.6666667%; }
   .col-9-md {
+    display: flex;
     flex-basis: 75%;
     max-width: 75%; }
   .col-10-md {
+    display: flex;
     flex-basis: 83.3333333%;
     max-width: 83.3333333%; }
   .col-11-md {
+    display: flex;
     flex-basis: 91.6666667%;
     max-width: 91.6666667%; }
   .col-12-md {
+    display: flex;
     flex-basis: 100%;
     max-width: 100%; }
   .col-nth-1-md {
@@ -357,7 +386,9 @@
   .col-middle-md {
     align-self: center; }
   .col-bottom-md {
-    align-self: flex-end; } }
+    align-self: flex-end; }
+  .col-hide-md {
+    display: none; } }
 @media (min-width: 1180px) {
   .container-lg {
     max-width: 1180px; }
@@ -382,39 +413,51 @@
   .col-lg {
     max-width: 100%; }
   .col-1-lg {
+    display: flex;
     flex-basis: 8.3333333%;
     max-width: 8.3333333%; }
   .col-2-lg {
+    display: flex;
     flex-basis: 16.6666667%;
     max-width: 16.6666667%; }
   .col-3-lg {
+    display: flex;
     flex-basis: 25%;
     max-width: 25%; }
   .col-4-lg {
+    display: flex;
     flex-basis: 33.3333333%;
     max-width: 33.3333333%; }
   .col-5-lg {
+    display: flex;
     flex-basis: 41.6666667%;
     max-width: 41.6666667%; }
   .col-6-lg {
+    display: flex;
     flex-basis: 50%;
     max-width: 50%; }
   .col-7-lg {
+    display: flex;
     flex-basis: 58.3333333%;
     max-width: 58.3333333%; }
   .col-8-lg {
+    display: flex;
     flex-basis: 66.6666667%;
     max-width: 66.6666667%; }
   .col-9-lg {
+    display: flex;
     flex-basis: 75%;
     max-width: 75%; }
   .col-10-lg {
+    display: flex;
     flex-basis: 83.3333333%;
     max-width: 83.3333333%; }
   .col-11-lg {
+    display: flex;
     flex-basis: 91.6666667%;
     max-width: 91.6666667%; }
   .col-12-lg {
+    display: flex;
     flex-basis: 100%;
     max-width: 100%; }
   .col-nth-1-lg {
@@ -470,6 +513,8 @@
   .col-middle-lg {
     align-self: center; }
   .col-bottom-lg {
-    align-self: flex-end; } }
+    align-self: flex-end; }
+  .col-hide-lg {
+    display: none; } }
 
 /*# sourceMappingURL=cornflex.css.map */
