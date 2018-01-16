@@ -51,10 +51,12 @@
       pre { margin-top: 20px }
       p + code, pre {
         padding: 20px;
+        padding-right: 25px;
         overflow: auto;
         background: rgba(0, 0, 0, .05);
         border-left: 5px solid rgba(0, 0, 0, .05);
         border-radius: 2px;
+        line-height: 24px;
       }
       p + code {
         display: inline-block;
@@ -95,11 +97,11 @@
         <h1>Cornflex</h1>
         <p>Modern CSS flexbox grid framework</p>
         <p class="small">
-          v1.3.1 |
+          v1.4 |
           <a href="https://www.npmjs.com/package/cornflex" target="_blank">npm</a> |
           <a href="https://github.com/myeti/cornflex" target="_blank">github</a> |
           <a href="cornflex.css" target="_blank">cornflex.css</a> |
-          <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> 7ko
+          <a href="cornflex.min.css" target="_blank">cornflex.min.css</a> 8ko
         </p>
 
       </div>
@@ -151,7 +153,10 @@
         <h2>Grid</h2>
 
         <p>Let you define a grid of row containing columns with a specific size.</p>
-        <code>.row .col-[1..12](-sm|-md|-lg)</code>
+        <code>
+          .row .col(-sm|-md|-lg) -> use remaining space<br>
+          .row .col-[1..12](-sm|-md|-lg) -> limit to n/12
+        </code>
 
         <h3>ex:</h3>
 
@@ -314,14 +319,18 @@
 
         <h2>Shift</h2>
 
-        <p>Shift cols to specific position based on col's size.</p>
-        <code>.col-shift-[0..11](-sm|-md|-lg)</code>
+        <p>Shift cols using the remaining space or to specific offset.</p>
+        <code>
+          .col-shift(-sm|-md|-lg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> use the remaining space<br>
+          .col-shift-[0..11](-sm|-md|-lg) -> to specific col offset
+        </code>
 
         <h3>ex:</h3>
 
         <div class="row row-gutter" data-code>
-          <div class="col-2 col-shift-2 col-shift-4-md"> 1 </div>
-          <div class="col-2 col-shift-2 col-shift-4-md"> 2 </div>
+          <div class="col-2"> 1 </div>
+          <div class="col-2 col-shift-6 col-shift-3-md"> 2 </div>
+          <div class="col-2 col-shift-md"> 3 </div>
         </div>
 
         <pre><code></code></pre> 

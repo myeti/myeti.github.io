@@ -1,11 +1,12 @@
 /*!
- * Cornflex v1.3.1
+ * Cornflex v1.4
  * Copyright 2018 Aymeric Assier <aymeric.assier@gmail.com>
  * Licensed under MIT (https://github.com/myeti/cornflex/blob/master/LICENCE)
  */
 .container, [class*="container-"] {
   box-sizing: border-box;
-  padding: 0 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: auto; }
 
 .row {
@@ -15,7 +16,8 @@
   .row-gutter {
     margin: 0 -10px; }
     .row-gutter .col, .row-gutter [class*="col-"] {
-      padding: 0 10px; }
+      padding-left: 10px;
+      padding-right: 10px; }
   .row-rtl {
     flex-direction: row-reverse; }
 
@@ -134,6 +136,9 @@
 
 .col-nth-12 {
   order: 12; }
+
+.col-shift {
+  margin-left: auto; }
 
 .col-shift-1 {
   margin-left: 8.33333%; }
@@ -273,6 +278,8 @@
     order: 11; }
   .col-nth-12-sm {
     order: 12; }
+  .col-shift-sm {
+    margin-left: auto; }
   .col-shift-0-sm {
     margin-left: 0%; }
   .col-shift-1-sm {
@@ -399,6 +406,8 @@
     order: 11; }
   .col-nth-12-md {
     order: 12; }
+  .col-shift-md {
+    margin-left: auto; }
   .col-shift-0-md {
     margin-left: 0%; }
   .col-shift-1-md {
@@ -525,6 +534,8 @@
     order: 11; }
   .col-nth-12-lg {
     order: 12; }
+  .col-shift-lg {
+    margin-left: auto; }
   .col-shift-0-lg {
     margin-left: 0%; }
   .col-shift-1-lg {
